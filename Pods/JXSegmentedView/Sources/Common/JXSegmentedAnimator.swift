@@ -16,11 +16,6 @@ open class JXSegmentedAnimator {
     private var displayLink: CADisplayLink!
     private var firstTimestamp: CFTimeInterval?
 
-    deinit {
-        progressClosure = nil
-        completedClosure = nil
-    }
-
     public init() {
         displayLink = CADisplayLink(target: self, selector: #selector(processDisplayLink(sender:)))
     }
@@ -30,6 +25,7 @@ open class JXSegmentedAnimator {
     }
 
     open func stop() {
+        progressClosure?(1)
         displayLink.invalidate()
         completedClosure?()
     }

@@ -24,10 +24,8 @@ open class JXSegmentedNumberDataSource: JXSegmentedTitleDataSource {
     open var numberOffset: CGPoint = CGPoint.zero
     /// 如果业务需要处理超过999就像是999+，就可以通过这个闭包实现。默认显示不会对number进行处理
     open var numberStringFormatterClosure: ((Int) -> String)?
-
-    deinit {
-        numberStringFormatterClosure = nil
-    }
+    /// numberLabel的高度，默认：14
+    open var numberHeight: CGFloat = 14
 
     open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedNumberItemModel()
@@ -50,6 +48,7 @@ open class JXSegmentedNumberDataSource: JXSegmentedTitleDataSource {
         itemModel.numberBackgroundColor = numberBackgroundColor
         itemModel.numberOffset = numberOffset
         itemModel.numberWidthIncrement = numberWidthIncrement
+        itemModel.numberHeight = numberHeight
     }
 
     //MARK: - JXSegmentedViewDataSource
