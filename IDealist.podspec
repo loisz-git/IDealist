@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
   'IDealist/IDealist/IDImagePicker/**/*.{lproj,strings}']
   }
 
-  s.dependency 'JXSegmentedView'
+  #s.dependency 'JXSegmentedView'
 
 end
